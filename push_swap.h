@@ -6,7 +6,7 @@
 /*   By: dda-cunh <dda-cunh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 20:09:20 by dda-cunh          #+#    #+#             */
-/*   Updated: 2023/05/07 22:18:36 by dda-cunh         ###   ########.fr       */
+/*   Updated: 2023/05/08 03:55:07 by dda-cunh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void		stclear(t_stack *st);
 void		delvalue(int *value);
 void		clear_stacks(t_stack *stack_a, t_stack *stack_b);
 int			get_mid(t_stack **stack_a, int ac);
-int			both_top(t_stack **a, t_stack **b, int size);
+void		both_top(t_stack **a, t_stack **b, int size);
 void		push_mid(t_stack **a, t_stack **b, int size, int mid);
 void		dotop(t_stack **a, t_stack **b);
 void		btoa(t_stack **a, t_stack **b, int size);
@@ -48,11 +48,13 @@ void		btoaxd(t_stack **a, t_stack **b);
 void		atobxd(t_stack **a, t_stack **b);
 void		a_logic(t_stack **a, t_stack **b);
 void		min_top(t_stack **a_head, t_stack **b_head);
+void		maxtoa(t_stack **a, t_stack **b);
 int			atob(t_stack **a, t_stack **b, int size);
 int			stackissort(t_stack *stack, int size);
 int			stackisrsort(t_stack *stack, int size);
 int			print_error(t_stack *stack_a, t_stack *stack_b);
 int			parser(int ac, char **av);
 int			currsize(t_stack *stack);
+int			min_rot(t_stack *stack, int size);
 
 #endif

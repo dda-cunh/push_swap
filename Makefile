@@ -34,7 +34,7 @@ $(OBJ): 	$(SRC)
 all: 		$(NAME)
 			make bonus
 clean:	
-			$(RM) $(OBJ)
+			$(RM) $(OBJ) push_swap_bonus.o
 
 fclean:		clean
 			$(RM) $(NAME)

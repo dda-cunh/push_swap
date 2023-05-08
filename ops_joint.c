@@ -6,7 +6,7 @@
 /*   By: dda-cunh <dda-cunh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 17:12:54 by dda-cunh          #+#    #+#             */
-/*   Updated: 2023/05/07 22:21:29 by dda-cunh         ###   ########.fr       */
+/*   Updated: 2023/05/08 03:44:03 by dda-cunh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,32 +15,15 @@
 
 void	min_top(t_stack **a_head, t_stack **b_head)
 {
-	int		i;
-	int		size;
 	int		min_i;
-	long	min;
 	t_stack	*a;
 
 	a = *a_head;
 	if (a)
 	{
-		i = 0;
-		min = a->value;
-		min_i = 0;
-		a = a->next;
-		while (a)
-		{
-			i++;
-			if (a->value < min)
-			{
-				min = a->value;
-				min_i = i;
-			}
-			a = a->next;
-		}
-		size = currsize(*a_head);
-		if (min_i > size / 2)
-			while (min_i++ < size)
+		min_i = min_rot(a, currsize(a));
+		if (min_i < 0)
+			while (min_i++)
 				rraob(a_head, '\0');
 		else
 			while (min_i--)

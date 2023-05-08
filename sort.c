@@ -6,17 +6,86 @@
 /*   By: dda-cunh <dda-cunh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 21:26:59 by dda-cunh          #+#    #+#             */
-/*   Updated: 2023/05/07 22:48:02 by dda-cunh         ###   ########.fr       */
+/*   Updated: 2023/05/08 04:16:01 by dda-cunh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+int	max_rot(t_stack *stack, int size)
+{
+	int		i;
+	int		max[2];
 
-// void	both_top(t_stack **a, t_stack **b, int size)
-// {
-	
-// }
+	if (!stackissort(stack, size))
+	{
+		i = 0;
+		max[1] = stack->value;
+		max[0] = 0;
+		stack = stack->next;
+		while (stack)
+		{
+			i++;
+			if (stack->value > max[1])
+			{
+				max[1] = stack->value;
+				max[0] = i;
+			}
+			stack = stack->next;
+		}
+		if (max[0] > size / 2)
+			return (max[0] - size);
+		else
+			return (max[0]);
+	}
+	return (0);
+}
+
+int	min_rot(t_stack *stack, int size)
+{
+	int		i;
+	int		min[2];
+
+	if (!stackissort(stack, size))
+	{
+		i = 0;
+		min[1] = stack->value;
+		min[0] = 0;
+		stack = stack->next;
+		while (stack)
+		{
+			i++;
+			if (stack->value < min[1])
+			{
+				min[1] = stack->value;
+				min[0] = i;
+			}
+			stack = stack->next;
+		}
+		if (min[0] > size / 2)
+			return (min[0] - size);
+		else
+			return (min[0]);
+	}
+	return (0);
+}
+
+void	maxtoa(t_stack **a, t_stack **b)
+{
+	int	rot;
+
+	while (*b)
+	{
+		rot = max_rot(*b, currsize(*b));
+		if (rot < 0)
+			while (rot++)
+				rraob(b, 'b');
+		else
+			while (rot--)
+				raob(b, 'b');
+		paob(a, b, 'a');
+	}
+}
 
 static t_stack	*init_c(t_stack *a)
 {
