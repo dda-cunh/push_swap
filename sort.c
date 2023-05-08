@@ -6,7 +6,7 @@
 /*   By: dda-cunh <dda-cunh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 21:26:59 by dda-cunh          #+#    #+#             */
-/*   Updated: 2023/05/08 04:16:01 by dda-cunh         ###   ########.fr       */
+/*   Updated: 2023/05/08 22:56:10 by dda-cunh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	max_rot(t_stack *stack, int size)
 	int		i;
 	int		max[2];
 
-	if (!stackissort(stack, size))
+	if (!stackisrsort(stack, size))
 	{
 		i = 0;
 		max[1] = stack->value;
@@ -110,18 +110,19 @@ static t_stack	*init_c(t_stack *a)
 
 int	get_mid(t_stack **a, int ac)
 {
+	int		i;
+	int		mid;
+	t_stack	*temp;
 	t_stack	*c;
 	t_stack	*d;
-	t_stack	*temp;
-	int		mid;
-	int		i;
 
 	c = init_c(*a);
 	d = NULL;
 	min_top(&c, &d);
-	btoa(&c, &d, ac - 1);
+	while (d)
+		paob(&c, &d, '\0');
 	i = 0;
-	while (i++ <= (ac - 1) / 2)
+	while (i++ <= (ac - 1) / 6)
 	{
 		temp = c;
 		mid = (c->value);

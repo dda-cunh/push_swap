@@ -6,7 +6,7 @@
 /*   By: dda-cunh <dda-cunh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 16:55:59 by dda-cunh          #+#    #+#             */
-/*   Updated: 2023/05/06 15:36:06 by dda-cunh         ###   ########.fr       */
+/*   Updated: 2023/05/08 19:36:29 by dda-cunh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,5 +82,27 @@ void	rraob(t_stack **stack, char aob)
 			ft_putstr_fd("rra\n", 1);
 		if (aob == 'b')
 			ft_putstr_fd("rrb\n", 1);
+	}
+}
+
+void	joint_op(t_stack **a, t_stack **b, char op)
+{
+	if (op == 'r')
+	{	
+		raob(a, '\0');
+		raob(b, '\0');
+		ft_putstr_fd("rr\n", 1);
+	}
+	if (op == 's')
+	{
+		saob(a, '\0');
+		saob(b, '\0');
+		ft_putstr_fd("ss\n", 1);
+	}
+	if (op == 't')
+	{
+		rraob(a, '\0');
+		rraob(b, '\0');
+		ft_putstr_fd("rrr\n", 1);
 	}
 }

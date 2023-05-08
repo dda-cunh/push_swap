@@ -6,19 +6,25 @@
 /*   By: dda-cunh <dda-cunh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 14:12:42 by dda-cunh          #+#    #+#             */
-/*   Updated: 2023/05/05 14:31:35 by dda-cunh         ###   ########.fr       */
+/*   Updated: 2023/05/08 18:39:22 by dda-cunh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	stadd_front(t_stack **st, t_stack *new)
+int	currsize(t_stack *stack)
 {
-	if (st && new)
+	int	i;
+
+	if (!stack)
+		return (0);
+	i = 1;
+	while (stack->next)
 	{
-		new->next = *st;
-		*st = new;
+		stack = stack->next;
+		i++;
 	}
+	return (i);
 }
 
 void	stclear(t_stack *st)
@@ -54,18 +60,23 @@ t_stack	*stlast(t_stack *st)
 	return (st);
 }
 
-void	stadd_back(t_stack **st, t_stack *new)
+void	print_stacks(t_stack *a, t_stack *b)
 {
-	t_stack	*last;
-
-	if (st)
+	ft_putstr_fd("\tA\t\tB\n", 1);
+	while (a || b)
 	{
-		if (!*st)
-			*st = new;
-		else
+		ft_putchar_fd('\t', 1);
+		if (a)
 		{
-			last = stlast(*st);
-			last->next = new;
+			ft_putnbr_fd(a->value, 1);
+			a = a->next;
 		}
+		ft_putstr_fd("\t\t", 1);
+		if (b)
+		{
+			ft_putnbr_fd(b->value, 1);
+			b = b->next;
+		}
+		ft_putchar_fd('\n', 1);
 	}
 }
