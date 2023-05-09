@@ -6,14 +6,14 @@
 /*   By: dda-cunh <dda-cunh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 20:09:20 by dda-cunh          #+#    #+#             */
-/*   Updated: 2023/05/09 19:21:56 by dda-cunh         ###   ########.fr       */
+/*   Updated: 2023/05/09 20:22:28 by dda-cunh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "../libft/libft.h"
+# include "libft/libft.h"
 
 typedef struct s_stack
 {
