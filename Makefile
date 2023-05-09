@@ -23,9 +23,9 @@ GREEN		= 	\033[0;32m
 RESET		=	\033[0m
 
 $(NAME):		$(OBJ)
-				make -C libft
-				$(CC) $(OBJ) -Llibft -lft -o $(NAME) -g3 -fsanitize=address
-				make fclean -C libft
+				make -C inc/libft
+				$(CC) $(OBJ) -Linc/libft -lft -o $(NAME) -g3 -fsanitize=address
+				make fclean -C inc/libft
 				make done
 
 $(OBJ):	 		$(SRC)
