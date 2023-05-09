@@ -1,50 +1,56 @@
 .SILENT:
-NAME	= 	push_swap
+NAME		= 	push_swap
 
-CC 		= 	clang
+CC 			= 	clang
 
-CFLAGS	= 	-Wall -Wextra -Werror
+CFLAGS		= 	-Wall -Wextra -Werror
 
-RM 		= 	rm -f
+RM 			= 	rm -f
 
-SRC		= 	push_swap.c utils.c stack.c \
-			stack_utils.c ops.c sort.c
+INC_PATH	=	inc/
 
-OBJ 	= 	$(SRC:%.c=%.o)
+SRC_PATH	=	src/
 
-GREEN	= 	\033[0;32m
+SRC_		= 	push_swap.c utils.c stack.c \
+				stack_utils.c ops.c sort.c
 
-RESET	=	\033[0m
+SRC			=	$(addprefix $(SRC_PATH), $(SRC_))
 
-$(NAME):	$(OBJ)
-			make -C libft
-			$(CC) $(OBJ) -Llibft -lft -o $(NAME) -g3 -fsanitize=address
-			make fclean -C libft
-			make done
+OBJ 		= 	$(SRC_:%.c=%.o)
 
-$(OBJ): 	$(SRC)
-			$(CC) -c $(CFLAGS) $(SRC)
+GREEN		= 	\033[0;32m
 
-all: 		$(NAME)
+RESET		=	\033[0m
+
+$(NAME):		$(OBJ)
+				make -C libft
+				$(CC) $(OBJ) -Llibft -lft -o $(NAME) -g3 -fsanitize=address
+				make fclean -C libft
+				make done
+
+$(OBJ):	 		$(SRC)
+				$(CC) -c $(CFLAGS) $(SRC)
+
+all: 			$(NAME)
 
 clean:	
-			$(RM) $(OBJ) push_swap_bonus.o
+				$(RM) $(OBJ) push_swap_bonus.o
 
-fclean:		clean
-			$(RM) $(NAME)
+fclean:			clean
+				$(RM) $(NAME)
 
-re:			fclean	all
+re:				fclean	all
 
 done:
-			printf "															 	\n"
-			printf "$(GREEN)	$(NAME)							 			$(RESET)\n"
-			printf "$(GREEN)                             _  _             _ $(RESET)\n"
-			printf "$(GREEN)                            (_)| |           | |$(RESET)\n"
-			printf "$(GREEN)  ____   ___   ____   ____   _ | |  ____   _ | |$(RESET)\n"
-			printf "$(GREEN) / ___) / _ \ |    \ |  _ \ | || | / _  ) / || |$(RESET)\n"
-			printf "$(GREEN)( (___ | |_| || | | || | | || || |( (/ / ( (_| |$(RESET)\n"
-			printf "$(GREEN) \____) \___/ |_|_|_|| ||_/ |_||_| \____) \____|$(RESET)\n"
-			printf "$(GREEN)                     |_|                        $(RESET)\n"
-			printf "																\n"
+				printf "															 	\n"
+				printf "$(GREEN)	$(NAME)							 			$(RESET)\n"
+				printf "$(GREEN)                             _  _             _ $(RESET)\n"
+				printf "$(GREEN)                            (_)| |           | |$(RESET)\n"
+				printf "$(GREEN)  ____   ___   ____   ____   _ | |  ____   _ | |$(RESET)\n"
+				printf "$(GREEN) / ___) / _ \ |    \ |  _ \ | || | / _  ) / || |$(RESET)\n"
+				printf "$(GREEN)( (___ | |_| || | | || | | || || |( (/ / ( (_| |$(RESET)\n"
+				printf "$(GREEN) \____) \___/ |_|_|_|| ||_/ |_||_| \____) \____|$(RESET)\n"
+				printf "$(GREEN)                     |_|                        $(RESET)\n"
+				printf "																\n"
 
-.PHONY: 	all clean fclean re
+.PHONY: 		all clean fclean re
