@@ -6,12 +6,11 @@
 /*   By: dda-cunh <dda-cunh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 20:09:04 by dda-cunh          #+#    #+#             */
-/*   Updated: 2023/05/08 22:59:44 by dda-cunh         ###   ########.fr       */
+/*   Updated: 2023/05/09 18:16:03 by dda-cunh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "libft/libft.h"
 
 // #include <iostream>
 
@@ -49,8 +48,10 @@ static void	plus30(t_stack **a, t_stack **b, int size)
 				raob(a, 'a');
 		}
 	}
-	if ((*a))
+	if (currsize(*a) > 5)
 		plus30(a, b, currsize(*a));
+	else
+		mintob(a, b, 0);
 }
 
 int	main(int ac, char **av)
@@ -59,18 +60,16 @@ int	main(int ac, char **av)
 	t_stack	*b;
 
 	if (ac < 2)
-		return (print_error(NULL, NULL));
+		return (1);
 	a = init_stack(ac, av);
 	if (!a)
 		return (print_error(NULL, NULL));
 	b = NULL;
 	if (ac > 31)
-	{
 		plus30(&a, &b, ac - 1);
-		maxtoa(&a, &b);
-	}
 	else
-		atob(&a, &b, ac - 1);
+		mintob(&a, &b, 0);
+	maxtoa(&a, &b, 0);
 	clear_stacks(a, b);
 	return (0);
 }

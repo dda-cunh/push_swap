@@ -6,74 +6,49 @@
 /*   By: dda-cunh <dda-cunh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 20:31:11 by dda-cunh          #+#    #+#             */
-/*   Updated: 2023/05/08 22:45:07 by dda-cunh         ###   ########.fr       */
+/*   Updated: 2023/05/09 18:10:17 by dda-cunh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	dotop(t_stack **a, t_stack **b)
+static void	top(t_stack **a, char print)
 {
-	if ((*a) && (*a)->value > stlast((*a))->value)
+	if ((*a)->next && (*a)->value > (*a)->next->value)
 	{
-		if ((*b) && (*b)->next && ((*b)->value < stlast(*b)->value))
-			joint_op(a, b, 'r');
-		else
-			raob(a, 'a');
-	}
-	if ((*b) && (*b)->value < stlast((*b))->value)
-	{
-		if ((*a)->next && ((*a)->value > stlast((*a))->value))
-			joint_op(a, b, 'r');
-		else
-			raob(b, 'b');
-	}
-}
-
-void	min_top(t_stack **a_head, t_stack **b_head)
-{
-	int		min_i;
-	t_stack	*a;
-
-	a = *a_head;
-	if (a)
-	{
-		min_i = min_rot(a, currsize(a));
-		if (min_i < 0)
-			while (min_i++)
-				rraob(a_head, '\0');
-		else
-			while (min_i--)
-				raob(a_head, '\0');
-		if (a_head && (*a_head)->next)
-		{
-			paob(b_head, a_head, '\0');
-			min_top(a_head, b_head);
-		}
-	}
-}
-
-void	atob(t_stack **a, t_stack **b, int size)
-{
-	while ((*a))
-	{
-		dotop(a, b);
-		if (stackissort(*a, size))
-			return ;
+		while ((*a)->value > stlast(*a)->value)
+			raob(a, print);
 		if (stackissort(*a, currsize(*a)))
-			if (*b && (*a)->value > (*b)->value)
-				break ;
-		if ((*a)->value < (*a)->next->value)
-			paob(b, a, 'b');
-		else
-		{
-			if (*b && (*b)->next && (*b)->value < (*b)->next->value)
-				joint_op(a, b, 's');
-			else
-				saob(a, 'a');
-		}
+			return ;
+		saob(a, print);
 	}
-	maxtoa(a, b);
+}
+
+void	mintob(t_stack **a, t_stack **b, int fake)
+{
+	int		rot;
+	char	print;
+
+	print = 'a';
+	if (fake)
+		print = '\0';
+	while (*a)
+	{
+		top(a, print);
+		if (stackissort(*a, currsize(*a)))
+			return ;
+		rot = min_rot(*a, currsize(*a));
+		if (rot < 0)
+			while (rot++)
+				rraob(a, print);
+		else
+			while (rot--)
+				raob(a, print);
+		if (fake)
+			paob(b, a, '\0');
+		else
+			paob(b, a, 'b');
+	}
 }
 
 int	parser(int ac, char **av)

@@ -6,7 +6,7 @@
 /*   By: dda-cunh <dda-cunh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 16:55:59 by dda-cunh          #+#    #+#             */
-/*   Updated: 2023/05/08 19:36:29 by dda-cunh         ###   ########.fr       */
+/*   Updated: 2023/05/09 12:28:15 by dda-cunh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,14 @@ void	paob(t_stack **to, t_stack **from, char aob)
 {
 	t_stack	*tostart;
 
-	if (aob == 'a')
-		ft_putstr_fd("pa\n", 1);
-	if (aob == 'b')
-		ft_putstr_fd("pb\n", 1);
 	tostart = *to;
 	*to = *from;
 	*from = (*from)->next;
 	(*to)->next = tostart;
+	if (aob == 'a')
+		ft_putstr_fd("pa\n", 1);
+	if (aob == 'b')
+		ft_putstr_fd("pb\n", 1);
 }
 
 void	raob(t_stack **stack, char aob)

@@ -6,7 +6,7 @@
 /*   By: dda-cunh <dda-cunh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 21:26:59 by dda-cunh          #+#    #+#             */
-/*   Updated: 2023/05/08 22:56:10 by dda-cunh         ###   ########.fr       */
+/*   Updated: 2023/05/09 12:26:46 by dda-cunh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,20 +70,27 @@ int	min_rot(t_stack *stack, int size)
 	return (0);
 }
 
-void	maxtoa(t_stack **a, t_stack **b)
+void	maxtoa(t_stack **a, t_stack **b, int fake)
 {
-	int	rot;
+	int		rot;
+	char	print;
 
+	print = 'b';
+	if (fake)
+		print = '\0';
 	while (*b)
 	{
 		rot = max_rot(*b, currsize(*b));
 		if (rot < 0)
 			while (rot++)
-				rraob(b, 'b');
+				rraob(b, print);
 		else
 			while (rot--)
-				raob(b, 'b');
-		paob(a, b, 'a');
+				raob(b, print);
+		if (fake)
+			paob(a, b, '\0');
+		else
+			paob(a, b, 'a');
 	}
 }
 
@@ -118,9 +125,8 @@ int	get_mid(t_stack **a, int ac)
 
 	c = init_c(*a);
 	d = NULL;
-	min_top(&c, &d);
-	while (d)
-		paob(&c, &d, '\0');
+	mintob(&c, &d, 1);
+	maxtoa(&c, &d, 1);
 	i = 0;
 	while (i++ <= (ac - 1) / 6)
 	{
