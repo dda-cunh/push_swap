@@ -6,24 +6,25 @@
 /*   By: dda-cunh <dda-cunh@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 13:01:54 by dda-cunh          #+#    #+#             */
-/*   Updated: 2023/07/13 13:28:24 by dda-cunh         ###   ########.fr       */
+/*   Updated: 2023/07/13 22:01:56 by dda-cunh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
+#include <limits.h>
 
-void	print_ideal_i(t_stack *a)
-{
-	while (a)
-	{
-		ft_putnbr_fd(a->ideal_index, 1);
-		ft_putendl_fd("", 1);
-		a = a->next;
-	}
-	return ;
-}
+// void	print_ideal_i(t_stack *a)
+// {
+// 	while (a)
+// 	{
+// 		ft_putnbr_fd(a->ideal_index, 1);
+// 		ft_putendl_fd("", 1);
+// 		a = a->next;
+// 	}
+// 	return ;
+// }
 
-static int  get_i(int val, t_stack *c)
+static int	get_i(int val, t_stack *c)
 {
 	int	i;
 
@@ -48,7 +49,7 @@ void	get_ideal_i(t_stack **a)
 	head = *a;
 	c = init_c(*a);
 	d = NULL;
-	mintob(&c, &d, 1);
+	mintob(&c, &d, 1, -1);
 	maxtoa(&c, &d, 1);
 	i = 0;
 	while (*a)

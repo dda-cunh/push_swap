@@ -6,7 +6,7 @@
 /*   By: dda-cunh <dda-cunh@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 20:09:20 by dda-cunh          #+#    #+#             */
-/*   Updated: 2023/07/13 13:32:45 by dda-cunh         ###   ########.fr       */
+/*   Updated: 2023/07/13 21:54:43 by dda-cunh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void		clear_stacks(t_stack *stack_a, t_stack *stack_b);
 /*                               stack.c                                      */
 /* ************************************************************************** */
 int			parser(int ac, char **av);
-void		mintob(t_stack **a, t_stack **b, int fake);
+void		mintob(t_stack **a, t_stack **b, int fake, int n);
 t_stack		*init_stack(int ac, char **av);
 
 /* ************************************************************************** */

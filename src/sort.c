@@ -6,11 +6,12 @@
 /*   By: dda-cunh <dda-cunh@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 21:26:59 by dda-cunh          #+#    #+#             */
-/*   Updated: 2023/07/13 13:37:02 by dda-cunh         ###   ########.fr       */
+/*   Updated: 2023/07/13 22:23:17 by dda-cunh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
+#include <limits.h>
 
 int	max_rot(t_stack *stack, int size)
 {
@@ -117,12 +118,28 @@ t_stack	*init_c(t_stack *a)
 
 int	get_mid(t_stack *a, int size)
 {
-	int	mid;
-	int	i;
+	int		i;
+	int		mid;
+	t_stack	*temp;
+	t_stack	*c;
+	t_stack	*d;
 
-	i = -1;
-	mid = 0;
-	while (a && (++i < size / 2))
-		a = a->next;
-	return (a->ideal_index);
+	c = init_c(a);
+	d = NULL;
+	mintob(&c, &d, 1, -1);
+	maxtoa(&c, &d, 1);
+	i = 0;
+	if (size > 100)
+		size /= 9;
+	else
+		size /= 5;
+	while (i++ <= size)
+	{
+		temp = c;
+		mid = (c->value);
+		c = c->next;
+		free(temp);
+	}
+	clear_stacks(c, d);
+	return (mid);
 }

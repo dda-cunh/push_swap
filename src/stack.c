@@ -6,7 +6,7 @@
 /*   By: dda-cunh <dda-cunh@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 20:31:11 by dda-cunh          #+#    #+#             */
-/*   Updated: 2023/07/13 13:28:41 by dda-cunh         ###   ########.fr       */
+/*   Updated: 2023/07/13 22:02:05 by dda-cunh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	top(t_stack **a, char print)
 	}
 }
 
-void	mintob(t_stack **a, t_stack **b, int fake)
+void	mintob(t_stack **a, t_stack **b, int fake, int n)
 {
 	int		rot;
 	char	print;
@@ -32,7 +32,7 @@ void	mintob(t_stack **a, t_stack **b, int fake)
 	print = 'a';
 	if (fake)
 		print = '\0';
-	while (*a)
+	while (*a && n--)
 	{
 		top(a, print);
 		if (stackissort(*a, currsize(*a)))
