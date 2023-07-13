@@ -12,7 +12,7 @@ INC_PATH	=	inc/
 SRC_PATH	=	src/
 
 SRC_		= 	push_swap.c utils.c stack.c \
-				stack_utils.c ops.c sort.c
+				stack_utils.c ops.c sort.c index_utils.c
 
 SRC			=	$(addprefix $(SRC_PATH), $(SRC_))
 

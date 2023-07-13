@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dda-cunh <dda-cunh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dda-cunh <dda-cunh@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 21:26:59 by dda-cunh          #+#    #+#             */
-/*   Updated: 2023/05/09 19:22:20 by dda-cunh         ###   ########.fr       */
+/*   Updated: 2023/07/13 13:37:02 by dda-cunh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ void	maxtoa(t_stack **a, t_stack **b, int fake)
 	}
 }
 
-static t_stack	*init_c(t_stack *a)
+t_stack	*init_c(t_stack *a)
 {
 	t_stack	*start;
 	t_stack	*c;
@@ -115,26 +115,14 @@ static t_stack	*init_c(t_stack *a)
 	return (start);
 }
 
-int	get_mid(t_stack **a, int ac)
+int	get_mid(t_stack *a, int size)
 {
-	int		i;
-	int		mid;
-	t_stack	*temp;
-	t_stack	*c;
-	t_stack	*d;
+	int	mid;
+	int	i;
 
-	c = init_c(*a);
-	d = NULL;
-	mintob(&c, &d, 1);
-	maxtoa(&c, &d, 1);
-	i = 0;
-	while (i++ <= (ac - 1) / 6)
-	{
-		temp = c;
-		mid = (c->value);
-		c = c->next;
-		free(temp);
-	}
-	clear_stacks(c, d);
-	return (mid);
+	i = -1;
+	mid = 0;
+	while (a && (++i < size / 2))
+		a = a->next;
+	return (a->ideal_index);
 }

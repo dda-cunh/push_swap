@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dda-cunh <dda-cunh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dda-cunh <dda-cunh@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 20:09:04 by dda-cunh          #+#    #+#             */
-/*   Updated: 2023/05/09 19:22:17 by dda-cunh         ###   ########.fr       */
+/*   Updated: 2023/07/13 13:37:53 by dda-cunh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ static void	plus30(t_stack **a, t_stack **b, int size)
 {
 	int	mid;
 
-	mid = get_mid(a, size);
+	mid = get_mid(*a, size);
 	while (sthasle(*a, mid))
 	{
-		if (a && *a && (*a)->value <= mid)
+		if (a && *a && (*a)->ideal_index <= mid)
 		{
 			if ((*a)->next && (*a)->next->value < (*a)->value)
 				saob(a, 'a');
@@ -62,6 +62,7 @@ int	main(int ac, char **av)
 	if (ac < 2)
 		return (1);
 	a = init_stack(ac, av);
+	print_ideal_i(a);
 	if (!a)
 		return (print_error(NULL, NULL));
 	b = NULL;

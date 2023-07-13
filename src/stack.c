@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dda-cunh <dda-cunh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dda-cunh <dda-cunh@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 20:31:11 by dda-cunh          #+#    #+#             */
-/*   Updated: 2023/05/09 19:22:10 by dda-cunh         ###   ########.fr       */
+/*   Updated: 2023/07/13 13:28:41 by dda-cunh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,5 +100,6 @@ t_stack	*init_stack(int ac, char **av)
 		}
 		stack = stack->next;
 	}
+	get_ideal_i(&start);
 	return (start);
 }
