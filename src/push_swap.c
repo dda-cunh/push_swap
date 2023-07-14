@@ -6,30 +6,15 @@
 /*   By: dda-cunh <dda-cunh@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 20:09:04 by dda-cunh          #+#    #+#             */
-/*   Updated: 2023/07/14 04:07:43 by dda-cunh         ###   ########.fr       */
+/*   Updated: 2023/07/14 15:18:53 by dda-cunh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-// #include <iostream>
-
-// int	main(int ac, char **av)
-// {
-// 	if (ac == 2)
-// 	{
-// 		srand((unsigned) time(NULL));
-// 		freopen("output.txt", "w", stdout);
-// 		for (int i = 0; i < atoi(av[1]); i++)
-// 			std::cout << (int)rand() << " ";
-// 		return (0);
-// 	}
-// 	return (1);
-// }
-
 static void	loe2(t_stack **a)
 {
-	if (stackissort(*a, currsize(*a)))
+	if (a && *a && stackissort(*a, currsize(*a)))
 		return ;
 	if (a && *a && currsize(*a) == 1)
 		return ;
@@ -62,16 +47,6 @@ static void	loe3(t_stack **a)
 		saob(a, 'a');
 		rraob(a, 'a');
 	}
-	return ;
-}
-
-static void	loe5(t_stack **a, t_stack **b)
-{
-	if (stackissort(*a, currsize(*a)))
-		return ;
-	if (currsize(*a) > 3)
-		mintob(a, b, 0, currsize(*a) - 3);
-	loe3(a);
 	return ;
 }
 
@@ -144,8 +119,8 @@ static void	sort(t_stack **a, t_stack **b, int size)
 	{
 		if (currsize(*a) <= 10)
 		{
-			mintob(a, b, 0, currsize(*a) - 5);
-			return (loe5(a, b));
+			mintob(a, b, 0, currsize(*a) - 3);
+			return (loe3(a));
 		}
 		sort(a, b, currsize(*a));
 	}
@@ -162,7 +137,7 @@ int	main(int ac, char **av)
 	if (!a)
 		return (print_error(NULL, NULL));
 	b = NULL;
-		sort(&a, &b, ac - 1);
+	sort(&a, &b, ac - 1);
 	maxtoa(&a, &b, 0);
 	clear_stacks(a, b);
 	return (0);
