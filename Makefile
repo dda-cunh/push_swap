@@ -24,7 +24,7 @@ RESET		=	\033[0m
 
 $(NAME):		$(OBJ)
 				make -C inc/libft
-				$(CC) $(OBJ) -Linc/libft -lft -o $(NAME) -g3 -fsanitize=address
+				$(CC) $(OBJ) -Linc/libft -lft -o $(NAME) -g -fsanitize=address
 				make fclean -C inc/libft
 				make done
 

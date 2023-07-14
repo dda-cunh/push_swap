@@ -6,12 +6,11 @@
 /*   By: dda-cunh <dda-cunh@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 13:01:54 by dda-cunh          #+#    #+#             */
-/*   Updated: 2023/07/13 22:01:56 by dda-cunh         ###   ########.fr       */
+/*   Updated: 2023/07/14 02:08:46 by dda-cunh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
-#include <limits.h>
 
 // void	print_ideal_i(t_stack *a)
 // {
@@ -41,7 +40,6 @@ static int	get_i(int val, t_stack *c)
 
 void	get_ideal_i(t_stack **a)
 {
-	int		i;
 	t_stack	*head;
 	t_stack	*c;
 	t_stack	*d;
@@ -51,7 +49,6 @@ void	get_ideal_i(t_stack **a)
 	d = NULL;
 	mintob(&c, &d, 1, -1);
 	maxtoa(&c, &d, 1);
-	i = 0;
 	while (*a)
 	{
 		(*a)->ideal_index = get_i((*a)->value, c);

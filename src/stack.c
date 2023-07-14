@@ -6,23 +6,11 @@
 /*   By: dda-cunh <dda-cunh@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 20:31:11 by dda-cunh          #+#    #+#             */
-/*   Updated: 2023/07/13 22:02:05 by dda-cunh         ###   ########.fr       */
+/*   Updated: 2023/07/14 03:13:34 by dda-cunh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
-
-static void	top(t_stack **a, char print)
-{
-	if ((*a)->next && (*a)->value > (*a)->next->value)
-	{
-		while ((*a)->value > stlast(*a)->value)
-			raob(a, print);
-		if (stackissort(*a, currsize(*a)))
-			return ;
-		saob(a, print);
-	}
-}
 
 void	mintob(t_stack **a, t_stack **b, int fake, int n)
 {
@@ -34,7 +22,6 @@ void	mintob(t_stack **a, t_stack **b, int fake, int n)
 		print = '\0';
 	while (*a && n--)
 	{
-		top(a, print);
 		if (stackissort(*a, currsize(*a)))
 			return ;
 		rot = min_rot(*a, currsize(*a));
@@ -44,6 +31,8 @@ void	mintob(t_stack **a, t_stack **b, int fake, int n)
 		else
 			while (rot--)
 				raob(a, print);
+		if (stackissort(*a, currsize(*a)))
+			break ;
 		if (fake)
 			paob(b, a, '\0');
 		else

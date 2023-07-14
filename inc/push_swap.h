@@ -6,7 +6,7 @@
 /*   By: dda-cunh <dda-cunh@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 20:09:20 by dda-cunh          #+#    #+#             */
-/*   Updated: 2023/07/13 21:54:43 by dda-cunh         ###   ########.fr       */
+/*   Updated: 2023/07/14 01:53:12 by dda-cunh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ t_stack		*stnew(int value);
 /*                                sort.c                                      */
 /* ************************************************************************** */
 t_stack		*init_c(t_stack *a);
-int			get_mid(t_stack *stack_a, int ac);
+int			get_mid(t_stack *stack_a, float size);
 int			min_rot(t_stack *stack, int size);
 int			max_rot(t_stack *stack, int size);
 void		maxtoa(t_stack **a, t_stack **b, int fake);
